@@ -1,10 +1,21 @@
-# rest-api-with-jaxrs
-Exposed rest api example with JAX-RS with Jersey as a provider
+== What is it?
 
-#start tomat using command
-docker run -it --rm -p 8888:8080 -e TOMCAT_USERNAME=user -e TOMCAT_PASSWORD=tomcat -e TOMCAT_ALLOW_REMOTE_MANAGEMENT=1  bitnami/tomcat:latest
+Sample project to demonstrate how to expose REST api using JAX-RS with Jersey as a provider
 
-#build project
+== How to setup tomcat server and database
+
+Docker-compose file is provided in the project root directory.
+hit command
+[source, shell]
+docker-compose up
+
+=== Import data in database
+http://www.postgresqltutorial.com/postgresql-sample-database/
+
+== How to start application
+
+package application using
+[source, shell]
 mvn clean package
 
-#deploy using tomcat console
+===deploy using tomcat console

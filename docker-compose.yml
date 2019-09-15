@@ -1,0 +1,26 @@
+version: '3'
+services:
+  tomcat:
+    image: bitnami/tomcat:latest
+    ports:
+      - "8888:8080"
+    container_name: tomcat-server
+    links:
+      - postgres:postgres
+    environment:
+      TOMCAT_USERNAME: user
+      TOMCAT_PASSWORD: tomcat
+      TOMCAT_ALLOW_REMOTE_MANAGEMENT: 1
+
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data 
+    container_name: my-postgres  
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
+volumes:
+ postgres_volume:     
